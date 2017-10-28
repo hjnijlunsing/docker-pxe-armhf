@@ -15,6 +15,7 @@ CMD \
     echo Starting DHCP Proxy+TFTP server...&&\
     dnsmasq --interface=eth1 \
     	    --dhcp-range=192.168.2.255,proxy \
+		--port=0
 	    --dhcp-boot=pxelinux.0,pxeserver,$myIP \
 	    --pxe-service=x86PC,"Install Linux",pxelinux \
 	    --enable-tftp --tftp-root=/tftp/ --no-daemon
