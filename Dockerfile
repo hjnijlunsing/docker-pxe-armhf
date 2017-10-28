@@ -13,7 +13,8 @@ RUN mkdir pxelinux.cfg
 RUN printf "DEFAULT linux\nLABEL linux\nKERNEL linux\nAPPEND initrd=initrd.gz\n" >pxelinux.cfg/default
 CMD \
     echo Starting DHCP Proxy+TFTP server...&&\
-    dnsmasq --interface=eth1 \
+    dnsmasq --bind-interfaces \
+			--except-interface=lo \
     	    --dhcp-range=192.168.2.255,proxy \
 		--port=0 \
 	    --dhcp-boot=pxelinux.0,pxeserver,$myIP \
