@@ -7,7 +7,7 @@ ENV MIRROR http://ftp.nl.debian.org
 RUN mkdir /tftp
 WORKDIR /tftp
 
-RUN wget $MIRROR/debian/dists/$DIST/main/installer-$ARCH/current/images/netboot.tar.gz
+RUN wget $MIRROR/debian/dists/$DIST/main/installer-$ARCH/current/images/netboot/netboot.tar.gz
 RUN tar xvfz netboot.tar.gz
 CMD \
     echo Starting DHCP Proxy+TFTP server...&&\
