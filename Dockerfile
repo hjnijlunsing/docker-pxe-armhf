@@ -9,6 +9,7 @@ WORKDIR /tftp
 
 RUN wget $MIRROR/debian/dists/$DIST/main/installer-$ARCH/current/images/netboot/netboot.tar.gz
 RUN tar xvfz netboot.tar.gz
+RUN rm netboot.tar.gz
 CMD \
     echo Starting DHCP Proxy+TFTP server...&&\
     dnsmasq --bind-interfaces \
